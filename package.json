@@ -5,6 +5,9 @@
   "main": "src/entries/dynamic.js",
   "type": "module",
   "types": "@types/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/loilo-inc/efficient-language-detector-js.git"
