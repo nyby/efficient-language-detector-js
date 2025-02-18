@@ -1,13 +1,13 @@
 {
   "name": "@nyby/eld",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Fast and accurate natural language detection. Detector written in Javascript. Efficient language detector, Nito-ELD, ELD.",
   "main": "./src/entries/static.M60.js",
   "type": "module",
   "types": "@types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/loilo-inc/efficient-language-detector-js.git"
+    "url": "git+https://github.com/nyby/efficient-language-detector-js.git"
   },
   "files": [
     "src",
@@ -35,9 +35,9 @@
   "funding": "https://linktr.ee/nitotm",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/nitotm/efficient-language-detector-js/issues"
+    "url": "https://github.com/nyby/efficient-language-detector-js/issues"
   },
-  "homepage": "https://github.com/nitotm/efficient-language-detector-js#readme",
+  "homepage": "https://github.com/nyby/efficient-language-detector-js#readme",
   "devDependencies": {
     "prettier": "^3.3.3"
   }
