@@ -6,19 +6,15 @@ Package npmjs.com/package/eld
 */
 
 import { languageData } from "./languageData.js";
-import { separators, matchDomains } from "./regexPatterns.js";
+import { matchDomains, separators } from "./regexPatterns.js";
 import { dictionary } from "./dictionary.js";
-import { isoLanguages } from "./isoLanguages.js";
 import { LanguageResult } from "./LanguageResult.js";
-import { saveLanguageSubset } from "./saveLanguageSubset.dev.js";
 
 // Project is ES2015
 const eld = (function () {
   return {
     detect: detect,
     cleanText: cleanText,
-    dynamicLangSubset: dynamicLangSubset,
-    saveSubset: saveSubset,
     info: info,
   };
 })();
@@ -318,45 +314,10 @@ function makeSubset(languages) {
   return subset;
 }
 
-/**
- * Creates a subset of languages, from which detect() will filter excluded languages from the results
- * Call dynamicLangSubset(false) to delete the subset
- *
- * @param {Array|boolean} languages
- * @returns {Object} Returns list of the validated languages for the new subset
- */
-function dynamicLangSubset(languages) {
-  let result = makeSubset(languages);
-  if (result) {
-    return isoLanguages(result, languageData.langCodes);
-  }
-  return {};
-}
-
-/**
- * Creates a download, only available for the web browser, with a file containing the ngrams database, of the validated
- * languages from the array argument
- *
- * @param {Array} languages
- */
-function saveSubset(languages) {
-  const langArray = makeSubset(languages);
-  makeSubset(false); // remove the global subset, we only need the filtered langArray
-  saveLanguageSubset.saveSubset(
-    langArray,
-    languageData.ngrams,
-    languageData.langCodes,
-    languageData.type,
-  );
-}
-
 function info() {
   return {
     "Data type": languageData.type,
     Languages: languageData.langCodes,
-    "Dynamic subset": subset
-      ? isoLanguages(subset, languageData.langCodes)
-      : false,
   };
 }
 

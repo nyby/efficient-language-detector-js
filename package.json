@@ -1,8 +1,8 @@
 {
-  "name": "@loilo-inc/eld",
+  "name": "@nyby/eld",
   "version": "1.0.1",
   "description": "Fast and accurate natural language detection. Detector written in Javascript. Efficient language detector, Nito-ELD, ELD.",
-  "main": "src/entries/dynamic.js",
+  "main": "./src/entries/static.M60.js",
   "type": "module",
   "types": "@types/index.d.ts",
   "publishConfig": {
@@ -18,28 +18,6 @@
     "LICENSE",
     "README.md"
   ],
-  "exports": {
-    ".": {
-      "import": "./src/entries/dynamic.js",
-      "types": "./@types/index.d.ts"
-    },
-    "./src/entries/static.L60.js": {
-      "import": "./src/entries/static.L60.js",
-      "types": "./@types/index.d.ts"
-    },
-    "./src/entries/static.M60.js": {
-      "import": "./src/entries/static.M60.js",
-      "types": "./@types/index.d.ts"
-    },
-    "./src/entries/static.S60.js": {
-      "import": "./src/entries/static.S60.js",
-      "types": "./@types/index.d.ts"
-    },
-    "./src/entries/static.XS60.js": {
-      "import": "./src/entries/static.XS60.js",
-      "types": "./@types/index.d.ts"
-    }
-  },
   "keywords": [
     "nlp",
     "language",
@@ -50,7 +28,8 @@
     "language-identification"
   ],
   "scripts": {
-    "fmt": "prettier 'src/**/*.js' --write"
+    "format": "prettier 'src/**/*.js' --write",
+    "test": "node tests/tests.js"
   },
   "author": {
     "name": "Nito T.M.",

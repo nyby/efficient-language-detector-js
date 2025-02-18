@@ -1,4 +1,4 @@
-import { eld } from '../src/languageDetector.js'
+import {eld} from '../src/entries/static.M60.js'
 import runTests from './testRunner.js'
 
 let txtFile = (typeof window !== 'undefined'
@@ -39,30 +39,12 @@ const testCases = [
         "google.com/search?q=search&source=hp\n"+ // this line fails, to be fixed
         "12345 A12345\n";
 	  return eld.cleanText(text).trim();
-	  } 
+	  }
   },*/
 
   {
     name: 'Check minimum confidence', assert: '===', compare: false, func: function () {
       return eld.detect('zxz zcz zvz zbz znz zmz zlz zsz zdz zkz zjz pelo').isReliable()
-    },
-  },
-
-  {
-    name: 'Create dynamicLangSubset, detect', assert: '===', compare: '["en"]', func: function () {
-      eld.dynamicLangSubset(['en'])
-      let scores = JSON.stringify(Object.keys(eld.detect('How are you? Bien, gracias').getScores()))
-      eld.dynamicLangSubset(false)
-      return scores
-    },
-  },
-
-  {
-    name: 'Disable dynamicLangSubset, detect', assert: '>', compare: 1, func: function () {
-      eld.dynamicLangSubset(['en'])
-      eld.dynamicLangSubset(false)
-      let scores = eld.detect('How are you? Bien, gracias').getScores()
-      return Object.keys(scores).length
     },
   },
 
